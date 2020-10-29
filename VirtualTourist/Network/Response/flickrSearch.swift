@@ -6,5 +6,10 @@ import Foundation
 struct FlickrSearch: Codable {
     let photos: Photos
     let stat: String
+    
+    enum CodingKeys: String, CodingKey{
+        case photos = "photos"
+        case stat
+    }
 }
 

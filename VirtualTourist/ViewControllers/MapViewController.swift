@@ -19,7 +19,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
     var mapPin: MKPointAnnotation?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.delegate = self
         let longPressed = UILongPressGestureRecognizer(target: self, action: #selector(handleTap(gestureRegonizer:)))
         longPressed.delegate = self
         longPressed.numberOfTapsRequired = 0

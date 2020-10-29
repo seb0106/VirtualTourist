@@ -91,6 +91,9 @@
                                                     </subviews>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="91" height="100"/>
+                                                <connections>
+                                                    <outlet property="photoImageView" destination="I6D-Gh-2Ks" id="2Yy-Wa-yvd"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
