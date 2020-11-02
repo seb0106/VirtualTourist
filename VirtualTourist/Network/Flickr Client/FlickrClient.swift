@@ -10,7 +10,7 @@ class FlickrClient{
     }
     
     enum Endpoints{
-        static let base = "https://www.flickr.com/services/rest/?"
+        static let base = "https://www.flickr.com/services/rest/"
         case geoLocation(Double, Double, Int)
         case downloadPhoto(Int, String, String, String)
         

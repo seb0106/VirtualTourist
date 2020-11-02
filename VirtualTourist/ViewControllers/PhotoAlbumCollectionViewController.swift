@@ -20,6 +20,9 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
     var photos: [PhotoData] = [PhotoData]()
     var isPhotoStored = false
     
+    let sectionInsets = UIEdgeInsets(top: 5.0, left: 20.0, bottom: 5.0, right: 20.0)
+    let itemsPerRow: CGFloat = 3.0
+    
     var photoCount = 0
     
     override func viewDidLoad() {
@@ -30,6 +33,7 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
         annotation.coordinate.latitude = pin.latitutde
         annotation.coordinate.longitude = pin.longitude
         mapView.addAnnotation(annotation)
+        collectionView.delegate = self
         dataController = DataController(modelName: "VirtualTourist")
         setUpFetchedResultsController()
         if isPhotoStored == false {
@@ -63,15 +67,22 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
         
     }
     
+    func showLoadFailure(message: String) {
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        print(message)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
     func generatePhotos(){
         _ = FlickrClient.getPhotosByLocation(lat: pin.latitutde, lon: pin.longitude){
-            response, error in
-            if let error = error {
-                print(error)
+            (response, error) in
+            if error != nil {
+                self.showLoadFailure(message: error?.localizedDescription ?? "")
             } else {
                 DataModel.photos = (response?.photos.photo)!
                 if DataModel.photos.count == 0{
-                    print("Theres no photo taken")
+                    self.showLoadFailure(message: "There's no photo taken. Try again!")
                     return
                 }
                 self.collectionView.reloadData()
@@ -121,5 +132,19 @@ extension PhotoAlbumCollectionViewController: UICollectionViewDelegate, UICollec
             }
         }
         return cell
+    }
+}
+
+extension PhotoAlbumCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding = sectionInsets.left * (itemsPerRow + 1)
+        let cellWidth = (view.frame.width - padding) / itemsPerRow
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
     }
 }

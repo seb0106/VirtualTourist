@@ -66,6 +66,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
         pin.latitutde = lat
         pin.longitude = lon
         try? self.dataController.viewContext.save()
+        setUpFetchedResultsController()
     }
     
     func setUpPins() {
@@ -116,7 +117,6 @@ extension MapViewController: MKMapViewDelegate {
        let collectionVC = storyboard?.instantiateViewController(identifier: "PhotoAlbumCollectionViewController") as! PhotoAlbumCollectionViewController
             print("didSelect", collectionVC)
         collectionVC.dataController = dataController
-        try? collectionVC.dataController.viewContext.save()
         if let pin = searchPinData(lat: (view.annotation?.coordinate.latitude)!, lon: (view.annotation?.coordinate.longitude)!) {
             collectionVC.pin = pin
         } else {
