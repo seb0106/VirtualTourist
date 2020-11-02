@@ -30,7 +30,7 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
         annotation.coordinate.latitude = pin.latitutde
         annotation.coordinate.longitude = pin.longitude
         mapView.addAnnotation(annotation)
-        
+        dataController = DataController(modelName: "VirtualTourist")
         setUpFetchedResultsController()
         if isPhotoStored == false {
             generatePhotos()

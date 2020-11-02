@@ -7,7 +7,7 @@
     <entity name="Pin" representedClassName=".Pin" syncable="YES">
         <attribute name="latitutde" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PhotoData" inverseName="pin" inverseEntity="PhotoData"/>
+        <relationship name="photo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhotoData" inverseName="pin" inverseEntity="PhotoData"/>
     </entity>
     <elements>
         <element name="PhotoData" positionX="-27" positionY="18" width="128" height="73"/>

@@ -6,6 +6,9 @@ import Foundation
 import CoreData
 
 class DataController{
+    
+    static let shared = DataController(modelName: "VirtualTourist")
+    
     let persistentContainer:NSPersistentContainer
     
     var viewContext: NSManagedObjectContext{
@@ -13,6 +16,7 @@ class DataController{
     }
     init(modelName:String) {
         persistentContainer = NSPersistentContainer(name: modelName)
+        
     }
     
     func configureContexts() {
@@ -27,6 +31,8 @@ class DataController{
                 fatalError(error!.localizedDescription)
             }
             self.autoSaveViewContext()
+            
+            self.configureContexts()
             
             completion?()
             

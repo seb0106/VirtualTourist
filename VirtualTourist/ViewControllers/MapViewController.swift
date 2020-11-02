@@ -113,9 +113,10 @@ extension MapViewController: MKMapViewDelegate {
         return pinView
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("didSelect", view.annotation)
        let collectionVC = storyboard?.instantiateViewController(identifier: "PhotoAlbumCollectionViewController") as! PhotoAlbumCollectionViewController
+            print("didSelect", collectionVC)
         collectionVC.dataController = dataController
+        try? collectionVC.dataController.viewContext.save()
         if let pin = searchPinData(lat: (view.annotation?.coordinate.latitude)!, lon: (view.annotation?.coordinate.longitude)!) {
             collectionVC.pin = pin
         } else {
@@ -133,6 +134,7 @@ extension MapViewController: MKMapViewDelegate {
     func searchPinData(lat: Double, lon: Double) -> Pin? {
         let latToCompare = NSNumber(value: lat)
         let lonToCompare = NSNumber(value: lon)
+        try? self.dataController.viewContext.save()
         if let pins = fetchedResultsController.fetchedObjects {
             for pin in pins {
                 let latNumber = NSNumber(value: pin.latitutde)
