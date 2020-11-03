@@ -9,6 +9,8 @@ import CoreData
 
 class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsControllerDelegate, MKMapViewDelegate{
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var newCollectionButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var CollectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -36,11 +38,26 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
         collectionView.dataSource = self
         setUpFetchedResultsController()
         if isPhotoStored == false {
+            setUpNewCollectionButton(isEnable: true)
             generatePhotos()
+        } else {
+            setUpNewCollectionButton(isEnable: false)
         }
     }
     
+    func setUpNewCollectionButton(isEnable: Bool){
+        newCollectionButton.isEnabled = isEnable
+    }
     
+    
+    @IBAction func addNewCollection(_ sender: Any) {
+        if let result = fetchedResultController.fetchedObjects {
+            for photo in result {
+                appDelegate.dataController.viewContext.delete(photo)
+            }
+        }
+        generatePhotos()
+    }
     
     func setUpFetchedResultsController(){
         let fetchRequest: NSFetchRequest<PhotoData> = PhotoData.fetchRequest()
@@ -90,7 +107,12 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
             
         }
     }
-    //var pin: Pin
+
+    func deletePhoto(indexOfPhoto: NSIndexPath) {
+        let photo = fetchedResultController.object(at: indexOfPhoto as IndexPath)
+        appDelegate.dataController.viewContext.delete(photo)
+        try? appDelegate.dataController.viewContext.save()
+    }
 }
 extension PhotoAlbumCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -109,6 +131,7 @@ extension PhotoAlbumCollectionViewController: UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! PhotoCellView
+        activityIndicator.startAnimating()
         cell.photoImageView.image = UIImage(named: "AppIcon")
         if isPhotoStored {
             let photo = fetchedResultController.object(at: indexPath)
@@ -122,6 +145,9 @@ extension PhotoAlbumCollectionViewController: UICollectionViewDelegate, UICollec
                 guard let data = data else {
                     return
                 }
+                self.activityIndicator.hidesWhenStopped = true
+                self.activityIndicator.stopAnimating()
+                
                 let image = UIImage(data: data)
                 cell.photoImageView.image = image
                 let p = PhotoData(context: self.appDelegate.dataController.viewContext)
@@ -131,6 +157,12 @@ extension PhotoAlbumCollectionViewController: UICollectionViewDelegate, UICollec
             }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deleteItems(at: [indexPath])
+        deletePhoto(indexOfPhoto: indexPath as NSIndexPath)
+        collectionView.reloadData()
     }
 }
 

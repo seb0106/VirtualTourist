@@ -122,8 +122,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,8 +138,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "generatePhotos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,8 +170,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,8 +186,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,8 +410,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "setUpFetchedResultsController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,8 +426,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "setUpFetchedResultsController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,8 +442,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "setUpFetchedResultsController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,8 +458,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "generatePhotos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,8 +474,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -490,8 +490,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -506,8 +506,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "setUpFetchedResultsController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -522,8 +522,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,8 +538,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -554,8 +554,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -570,8 +570,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -586,8 +586,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "generatePhotos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -602,8 +602,8 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,9 +618,25 @@
             filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "generatePhotos()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3F693E3-880B-4221-9214-F0BFEE13C36C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VirtualTourist/ViewControllers/PhotoAlbumCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setUpFetchedResultsController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -68,7 +68,7 @@
                                         </constraints>
                                     </mapView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3xV-jx-R5f">
-                                        <rect key="frame" x="0.0" y="303" width="414" height="603"/>
+                                        <rect key="frame" x="0.0" y="303" width="414" height="450"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lkF-pv-zfR">
                                             <size key="itemSize" width="91" height="100"/>
@@ -76,6 +76,10 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="EYt-Wj-kjU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="Z3q-TJ-YjM" customClass="PhotoCellView" customModule="VirtualTourist" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="100"/>
@@ -97,9 +101,15 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vv-LB-ZMF">
+                                        <rect key="frame" x="0.0" y="753" width="414" height="153"/>
+                                        <state key="normal" title="New collection"/>
+                                        <connections>
+                                            <action selector="addNewCollection:" destination="ZbZ-8S-68F" eventType="touchUpInside" id="uaj-SS-7I9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="3xV-jx-R5f" secondAttribute="bottom" id="8Vr-10-B5V"/>
                                     <constraint firstAttribute="trailing" secondItem="3xV-jx-R5f" secondAttribute="trailing" id="oU0-1X-Fqg"/>
                                 </constraints>
                             </stackView>
@@ -115,8 +125,10 @@
                     </view>
                     <connections>
                         <outlet property="CollectionViewFlowLayout" destination="lkF-pv-zfR" id="gBC-73-pQj"/>
+                        <outlet property="activityIndicator" destination="EYt-Wj-kjU" id="ltc-nK-0VO"/>
                         <outlet property="collectionView" destination="3xV-jx-R5f" id="ocT-OM-H0v"/>
                         <outlet property="mapView" destination="y6L-Iw-jih" id="1I1-G6-xyp"/>
+                        <outlet property="newCollectionButton" destination="6vv-LB-ZMF" id="2hM-iC-WrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeL-Br-JwN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
