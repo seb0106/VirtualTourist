@@ -9,7 +9,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-    let dataController = DataController(modelName: "VirtualTourist")
+    var dataController = DataController(modelName: "VirtualTourist")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -76,4 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+//To use the DataController as a instance everywhere
+extension UIViewController {
+    var appDelegate: AppDelegate {
+    return UIApplication.shared.delegate as! AppDelegate
+   }
+}
+
 

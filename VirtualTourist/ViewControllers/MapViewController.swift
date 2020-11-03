@@ -13,7 +13,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
     
     var centerPosition = CLLocationCoordinate2D()
     var zoomRange = MKCoordinateSpan()
-    var dataController : DataController!
+   // var dataController : DataController!
     var fetchedResultsController : NSFetchedResultsController<Pin>!
     
     var mapPin: MKPointAnnotation?
@@ -25,8 +25,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
         longPressed.numberOfTapsRequired = 0
         longPressed.minimumPressDuration = 0.5
         mapView.addGestureRecognizer(longPressed)
-        dataController = DataController(modelName: "VirtualTourist")
-        dataController.load()
+        appDelegate.dataController.load()
         setUpFetchedResultsController()
         setUpPins()
 
@@ -62,10 +61,10 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
     }
     
     func addPin(lat: Double, lon: Double){
-        let pin = Pin(context: dataController.viewContext)
+        let pin = Pin(context: appDelegate.dataController.viewContext)
         pin.latitutde = lat
         pin.longitude = lon
-        try? self.dataController.viewContext.save()
+        try? self.appDelegate.dataController.viewContext.save()
         setUpFetchedResultsController()
     }
     
@@ -86,7 +85,7 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
         func setUpFetchedResultsController(){
             let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
             fetchRequest.sortDescriptors = []
-            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
             fetchedResultsController.delegate = self
             do{
                 try fetchedResultsController.performFetch()
@@ -116,7 +115,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
        let collectionVC = storyboard?.instantiateViewController(identifier: "PhotoAlbumCollectionViewController") as! PhotoAlbumCollectionViewController
             print("didSelect", collectionVC)
-        collectionVC.dataController = dataController
+       // collectionVC.appDelegate.dataController = appDelegate.dataController
         if let pin = searchPinData(lat: (view.annotation?.coordinate.latitude)!, lon: (view.annotation?.coordinate.longitude)!) {
             collectionVC.pin = pin
         } else {
@@ -134,7 +133,7 @@ extension MapViewController: MKMapViewDelegate {
     func searchPinData(lat: Double, lon: Double) -> Pin? {
         let latToCompare = NSNumber(value: lat)
         let lonToCompare = NSNumber(value: lon)
-        try? self.dataController.viewContext.save()
+        try? self.appDelegate.dataController.viewContext.save()
         if let pins = fetchedResultsController.fetchedObjects {
             for pin in pins {
                 let latNumber = NSNumber(value: pin.latitutde)
@@ -152,3 +151,5 @@ extension MapViewController: MKMapViewDelegate {
         zoomRange = mapView.region.span
     }
 }
+
+

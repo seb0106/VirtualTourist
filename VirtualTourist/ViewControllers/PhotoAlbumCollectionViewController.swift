@@ -15,7 +15,6 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
     
     
     var pin: Pin!
-    var dataController: DataController!
     var fetchedResultController: NSFetchedResultsController<PhotoData>!
     var photos: [PhotoData] = [PhotoData]()
     var isPhotoStored = false
@@ -34,7 +33,7 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
         annotation.coordinate.longitude = pin.longitude
         mapView.addAnnotation(annotation)
         collectionView.delegate = self
-        dataController = DataController(modelName: "VirtualTourist")
+        collectionView.dataSource = self
         setUpFetchedResultsController()
         if isPhotoStored == false {
             generatePhotos()
@@ -48,7 +47,7 @@ class PhotoAlbumCollectionViewController: UIViewController , NSFetchedResultsCon
         fetchRequest.sortDescriptors = []
         let predicate = NSPredicate(format: "pin == %@", pin)
         fetchRequest.predicate = predicate
-        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultController.delegate = self
         do {
             try fetchedResultController.performFetch()
@@ -125,10 +124,10 @@ extension PhotoAlbumCollectionViewController: UICollectionViewDelegate, UICollec
                 }
                 let image = UIImage(data: data)
                 cell.photoImageView.image = image
-                let p = PhotoData(context: self.dataController.viewContext)
+                let p = PhotoData(context: self.appDelegate.dataController.viewContext)
                 p.image = data
                 p.pin = self.pin
-                try? self.dataController.viewContext.save()
+                try? self.appDelegate.dataController.viewContext.save()
             }
         }
         return cell
