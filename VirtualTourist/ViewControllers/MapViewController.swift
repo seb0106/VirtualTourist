@@ -38,7 +38,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
     }
     
     @objc func handleTap(gestureRegonizer: UILongPressGestureRecognizer){
-        print("lol")
         if gestureRegonizer.state == .began{
             let location = gestureRegonizer.location(in: mapView)
             let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
@@ -47,7 +46,6 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate, NSFetche
             annotation.coordinate = coordinate
             mapView.addAnnotation(annotation)
             print("after saving pin:")
-            
         }
         
     }
